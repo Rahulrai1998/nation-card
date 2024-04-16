@@ -15,6 +15,14 @@
         border-radius: 5px;
         margin: 10% auto;
       }
+      .flag {
+        margin-top: 30%;
+        width: 60%;
+        height: 60%;
+      }
+      .flag-div {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -33,7 +41,17 @@
       request.addEventListener("load", function () {
         const { data } = JSON.parse(this.responseText);
         const dataIndia = data[92];
+        console.log(data);
+
+        const htmlBody = `
         
+        <div class="flag-div">
+            <img src="${dataIndia.flag}" alt="Inida" class="flag"/>
+        <div>
+        <h1>${dataIndia.name}</h1>
+        `;
+
+        parentDiv.insertAdjacentHTML("afterbegin", htmlBody);
       });
     </script>
   </body>
