@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nation Card</title>
+    <style>
+      body {
+        background: black;
+      }
+      .parent-div {
+        background: white;
+        width: 250px;
+        height: 300px;
+        border-radius: 5px;
+        margin: 10% auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent-div" id="parent-div-id"></div>
+
+    <script>
+      const parentDiv = document.querySelector("#parent-div-id");
+      const request = new XMLHttpRequest();
+      request.open(
+        "GET",
+        "https://countriesnow.space/api/v0.1/countries/flag/images"
+      );
+      request.send();
+
+      //TO GET THE RESPONSE
+      request.addEventListener("load", function () {
+        const { data } = JSON.parse(this.responseText);
+        const dataIndia = data[92];
+        
+      });
+    </script>
+  </body>
 </html>
